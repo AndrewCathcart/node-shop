@@ -4,35 +4,35 @@ Following along with https://www.udemy.com/nodejs-the-complete-guide where I lea
 
 ## Course Content
 
-Node.js Basics
+Node.js Basics &check;
 
-Efficient Development (npm etc)
+Efficient Development (npm etc) &check;
 
-Express.js
+Express.js &check;
 
-Templating Engines
+Templating Engines &check;
 
-MVC
+MVC &check;
 
-Advanced Routes & Models
+Advanced Routes & Models &check;
 
-Node + SQL (MySQL)
+Node + SQL (MySQL) &check;
 
-Sequelize
+Sequelize &check;
 
-Node + NoSQL (MongoDB)
+Node + NoSQL (MongoDB) &check;
 
-Mongoose
+Mongoose &check;
 
-Sessions & Cookies
+Sessions & Cookies &check;
 
-Auth
+Auth &check;
 
-Sending E-Mails
+Sending E-Mails &check;
 
-User Input Validation
+User Input Validation &check;
 
-Error Handling
+Error Handling &check;
 
 File Uploads & Downloads
 
