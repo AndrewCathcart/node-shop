@@ -234,11 +234,12 @@ form {
 
 .user-message {
   margin: auto;
+  margin-top: 1rem;
   width: 90%;
   border: 1px solid #4771fa;
   padding: 0.5rem;
   border-radius: 3px;
-  background: #b9c9ff;
+  background: #a6a6ff;
   text-align: center;
 }
 
