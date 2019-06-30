@@ -2,7 +2,7 @@ const crypto = require('crypto');
 const bcrypt = require('bcryptjs');
 const nodemailer = require('nodemailer');
 const sendgridTransport = require('nodemailer-sendgrid-transport');
-const secrets = require('../../api-keys/api-keys');
+const secrets = require('../api-keys/api-keys');
 const User = require('../models/user');
 
 const SENDGRID_API_KEY = secrets.SENDGRID_API_KEY;
