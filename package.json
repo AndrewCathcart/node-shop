@@ -18,25 +18,26 @@
   },
   "homepage": "https://github.com/AndrewCathcart/nodejs-app#readme",
   "devDependencies": {
-    "nodemon": "^1.18.6"
+    "nodemon": "^1.19.1"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
-    "body-parser": "^1.18.3",
+    "body-parser": "^1.19.0",
     "connect-flash": "^0.1.1",
-    "connect-mongodb-session": "^2.0.5",
-    "csurf": "^1.9.0",
-    "ejs": "^2.6.1",
-    "express": "^4.16.4",
-    "express-handlebars": "^3.0.0",
-    "express-session": "^1.15.6",
-    "mongodb": "^3.1.10",
-    "mongoose": "^5.3.13",
-    "mysql2": "^1.6.4",
-    "nodemailer": "^4.7.0",
+    "connect-mongodb-session": "^2.2.0",
+    "csurf": "^1.10.0",
+    "ejs": "^2.6.2",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "express-session": "^1.16.2",
+    "lodash": "^4.17.11",
+    "mongodb": "^3.2.7",
+    "mongoose": "^5.6.2",
+    "mysql2": "^1.6.5",
+    "nodemailer": "^6.2.1",
     "nodemailer-sendgrid-transport": "^0.2.0",
-    "pug": "^2.0.3",
-    "sequelize": "^4.41.2",
+    "pug": "^2.0.4",
+    "sequelize": "^6.0.0",
     "shortid": "^2.2.14"
   }
 }

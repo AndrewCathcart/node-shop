@@ -7,7 +7,7 @@ const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
 const csrf = require('csurf');
 const flash = require('connect-flash');
-const secrets = require('../api-keys/api-keys');
+const secrets = require('./api-keys/api-keys');
 
 const errorController = require('./controllers/error');
 const User = require('./models/user');
@@ -65,7 +65,7 @@ app.use(shopRoutes);
 app.use(errorController.get404);
 
 mongoose
-    .connect(MONGODB_URI)
+    .connect(MONGODB_URI, { useNewUrlParser: true })
     .then(result => {
         app.listen(3000);
     })

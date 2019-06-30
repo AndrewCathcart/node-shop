@@ -59,3 +59,6 @@ typings/
 
 # next.js build output
 .next
+
+# keys for Sendgrid & MongoDB
+api-keys
