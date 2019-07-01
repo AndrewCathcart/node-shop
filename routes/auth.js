@@ -14,11 +14,13 @@ router.post(
     expressValidator
       .body("email")
       .isEmail()
-      .withMessage("Please enter a valid email address."),
+      .withMessage("Please enter a valid email address.")
+      .normalizeEmail(),
     expressValidator
       .body("password", "Password has to be valid.")
       .isLength({ min: 5 })
       .isAlphanumeric()
+      .trim()
   ],
   authController.postLogin
 );
@@ -41,14 +43,16 @@ router.post(
             );
           }
         });
-      }),
+      })
+      .normalizeEmail(),
     expressValidator
       .body(
         "password",
         "Please enter an alphanumeric password longer than 5 characters."
       )
       .isLength({ min: 5 })
-      .isAlphanumeric(),
+      .isAlphanumeric()
+      .trim(),
     expressValidator.body("confirmPassword").custom((value, { req }) => {
       if (value !== req.body.password) {
         throw new Error("Passwords must match!");
