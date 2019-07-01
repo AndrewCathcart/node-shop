@@ -38,14 +38,21 @@ router.post(
   "/edit-product",
   [
     expressValidator
-      .body("title")
-      .isAlphanumeric()
+      .body("title", "Please ensure the title contains more than 3 characters.")
+      .isString()
       .isLength({ min: 3 })
       .trim(),
-    expressValidator.body("imageUrl").isURL(),
-    expressValidator.body("price").isFloat(),
     expressValidator
-      .body("description")
+      .body("imageUrl", "Please ensure you enter a valid image URL.")
+      .isURL(),
+    expressValidator
+      .body("price", "Please ensure the price is a decimal.")
+      .isFloat(),
+    expressValidator
+      .body(
+        "description",
+        "Please ensure the description is between 5 and 400 characters."
+      )
       .isLength({ min: 5, max: 400 })
       .trim()
   ],
