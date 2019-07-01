@@ -53,12 +53,15 @@ router.post(
       .isLength({ min: 5 })
       .isAlphanumeric()
       .trim(),
-    expressValidator.body("confirmPassword").custom((value, { req }) => {
-      if (value !== req.body.password) {
-        throw new Error("Passwords must match!");
-      }
-      return true;
-    })
+    expressValidator
+      .body("confirmPassword")
+      .trim()
+      .custom((value, { req }) => {
+        if (value !== req.body.password) {
+          throw new Error("Passwords must match!");
+        }
+        return true;
+      })
   ],
   authController.postSignup
 );
