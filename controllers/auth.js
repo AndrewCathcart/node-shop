@@ -1,10 +1,11 @@
 const crypto = require("crypto");
 const bcrypt = require("bcryptjs");
-const nodemailer = require("nodemailer");
-const sendgridTransport = require("nodemailer-sendgrid-transport");
 const secrets = require("../api-keys/api-keys");
 const User = require("../models/user");
+const expressValidator = require("express-validator");
 
+const nodemailer = require("nodemailer");
+const sendgridTransport = require("nodemailer-sendgrid-transport");
 const SENDGRID_API_KEY = secrets.SENDGRID_API_KEY;
 
 const transporter = nodemailer.createTransport(
@@ -63,36 +64,35 @@ exports.postLogin = (req, res, next) => {
 exports.postSignup = (req, res, next) => {
   const email = req.body.email;
   const password = req.body.password;
-  const confirmPassword = req.body.confirmPassword;
-  User.findOne({ email: email })
-    .then(userDoc => {
-      if (userDoc) {
-        req.flash(
-          "error",
-          "Email address is already in use, please use a different one."
-        );
-        return res.redirect("/signup");
-      }
-      return bcrypt
-        .hash(password, 12)
-        .then(hashedPassword => {
-          const user = new User({
-            email: email,
-            password: hashedPassword,
-            cart: { items: [] }
-          });
-          return user.save();
-        })
-        .then(result => {
-          res.redirect("/login");
-          return transporter.sendMail({
-            to: email,
-            from: "node-shop@awc-node-app.com",
-            subject: "Signup succeeded!",
-            html:
-              "<h1>You successfully created an account with node-app-shop</h1>"
-          });
-        });
+
+  const errors = expressValidator.validationResult(req);
+  if (!errors.isEmpty()) {
+    console.log(errors.array());
+    return res.status(422).render("auth/signup", {
+      path: "/signup",
+      pageTitle: "Signup",
+      errorMessage: errors.array()[0].msg
+    });
+  }
+
+  bcrypt
+    .hash(password, 12)
+    .then(hashedPassword => {
+      const user = new User({
+        email: email,
+        password: hashedPassword,
+        cart: { items: [] }
+      });
+      return user.save();
+    })
+    .then(result => {
+      res.redirect("/login");
+      return transporter.sendMail({
+        to: email,
+        from: "node-shop@awc-node-app.com",
+        subject: "Signup succeeded!",
+        html: "<h1>You successfully created an account with node-app-shop</h1>"
+      });
     })
     .catch(err => {
       console.log(err);

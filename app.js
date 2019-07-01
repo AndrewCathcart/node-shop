@@ -28,6 +28,7 @@ const shopRoutes = require("./routes/shop");
 const authRoutes = require("./routes/auth");
 
 app.use(bodyParser.urlencoded({ extended: false }));
+// eslint-disable-next-line no-undef
 app.use(express.static(path.join(__dirname, "public")));
 app.use(
   session({
@@ -66,7 +67,7 @@ app.use(errorController.get404);
 
 mongoose
   .connect(MONGODB_URI, { useNewUrlParser: true })
-  .then(result => {
+  .then(() => {
     app.listen(3000);
   })
   .catch(err => {

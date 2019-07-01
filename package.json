@@ -27,7 +27,6 @@
     "connect-mongodb-session": "^2.2.0",
     "csurf": "^1.10.0",
     "ejs": "^2.6.2",
-    "eslint": "^6.0.1",
     "express": "^4.17.1",
     "express-handlebars": "^3.1.0",
     "express-session": "^1.16.2",
