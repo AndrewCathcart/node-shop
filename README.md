@@ -1,6 +1,6 @@
 # nodejs-app
 
-Following along with https://www.udemy.com/nodejs-the-complete-guide where I learn all about developing with Node JS. 
+Following along with https://www.udemy.com/nodejs-the-complete-guide where I learn all about developing with Node JS.
 
 ## Course Content
 
