@@ -28,7 +28,6 @@ const shopRoutes = require("./routes/shop");
 const authRoutes = require("./routes/auth");
 
 app.use(bodyParser.urlencoded({ extended: false }));
-// eslint-disable-next-line no-undef
 app.use(express.static(path.join(__dirname, "public")));
 app.use(
   session({
