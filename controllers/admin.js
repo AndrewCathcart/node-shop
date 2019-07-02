@@ -145,14 +145,13 @@ exports.postDeleteProduct = (req, res, next) => {
   Product.deleteOne({ _id: prodId, userId: req.user._id })
     .then(() => {
       console.log("DESTROYED PRODUCT");
+      // Remove the item that was just deleted from all users carts
       User.find({}, (err, users) => {
-        console.log(users);
         users.forEach(user => {
           user.removeFromCart(prodId);
         });
       });
     })
-    // This only removes it for the current user - need to remove it from all users carts.
     .then(() => {
       res.redirect("/admin/products");
     })
