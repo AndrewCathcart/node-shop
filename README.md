@@ -1,8 +1,8 @@
 # nodejs-app
 
-Following along with https://www.udemy.com/nodejs-the-complete-guide where I learn all about developing with Node JS.
+An online shop created with Node.js, Express.js & Mongoose
 
-## Course Content
+## What I've learned
 
 Node.js Basics &check;
 
@@ -26,7 +26,7 @@ Mongoose &check;
 
 Sessions & Cookies &check;
 
-Auth &check;
+Authentication &check;
 
 Sending E-Mails &check;
 
