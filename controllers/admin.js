@@ -1,5 +1,6 @@
 const Product = require("../models/product");
 const User = require("../models/user");
+const fileHelper = require("../util/file");
 
 const expressValidator = require("express-validator");
 
@@ -153,6 +154,8 @@ exports.postEditProduct = (req, res, next) => {
       product.description = updatedDesc;
       // Only update the image if they uploaded a new one
       if (image) {
+        // delete the old file
+        fileHelper.deleteFile(product.imageUrl);
         product.imageUrl = image.path;
       }
       return product.save().then(result => {
@@ -186,17 +189,26 @@ exports.getProducts = (req, res, next) => {
 
 exports.postDeleteProduct = (req, res, next) => {
   const prodId = req.body.productId;
-  Product.deleteOne({ _id: prodId, userId: req.user._id })
-    .then(() => {
-      console.log("DESTROYED PRODUCT");
-      // Remove the item that was just deleted from all users carts
-      User.find({}, (err, users) => {
-        users.forEach(user => {
-          user.removeFromCart(prodId);
-        });
-      });
+  Product.findById(prodId)
+    .then(product => {
+      if (!product) {
+        return next(new Error("Product not found."));
+      }
+      return Product.deleteOne({ _id: prodId, userId: req.user._id }).then(
+        () => {
+          // Delete the product image from the server
+          fileHelper.deleteFile(product.imageUrl);
+          // Delete the product from every users cart
+          User.find({}, (err, users) => {
+            users.forEach(user => {
+              user.removeFromCart(prodId);
+            });
+          });
+        }
+      );
     })
     .then(() => {
+      console.log("DESTROYED PRODUCT");
       res.redirect("/admin/products");
     })
     .catch(err => {
