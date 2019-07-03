@@ -17,9 +17,6 @@ router.post(
       .isLength({ min: 3 })
       .trim(),
     expressValidator
-      .body("imageUrl", "Please ensure you enter a valid image URL.")
-      .isURL(),
-    expressValidator
       .body("price", "Please ensure the price is a decimal.")
       .isFloat(),
     expressValidator
@@ -42,9 +39,6 @@ router.post(
       .isString()
       .isLength({ min: 3 })
       .trim(),
-    expressValidator
-      .body("imageUrl", "Please ensure you enter a valid image URL.")
-      .isURL(),
     expressValidator
       .body("price", "Please ensure the price is a decimal.")
       .isFloat(),
