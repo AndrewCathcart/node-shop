@@ -8,7 +8,7 @@ An online shop created with Node.js, Express.js & Mongoose
 Node.js Basics &check;
 
 Efficient Development &check;
-- npm, nodemon, debugging
+- npm, nodemon, debugging a Node application
 
 Express.js &check;
 
