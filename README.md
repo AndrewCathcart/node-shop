@@ -21,22 +21,23 @@ MVC &check;
 Advanced Routes & Models &check;
 - Dynamic routing, defining and creating better models
 
-SQL (MySQL) &check;
-- How to use query a MySQL db with in a Node application
+SQL & MySQL &check;
+- Querying a database within a Node application
 
-Sequelize &check;
-- Less verbose than just SQL
+Sequelize & MySQL &check;
+- Benefits of ORM's
 
 NoSQL & MongoDB &check;
+- Experimenting with a non-relational database
 
 Mongoose & MongoDB &check;
-- Integrated into my application
+- Rewrote my application to use this
 
 Sessions & Cookies &check;
 - Express-session, setting, manipulating and configuring cookies
 
 Authentication &check;
-- Bcrypt, CSRF token, Password reset (& reset token expiry)
+- Signup & Login, Bcrypt, CSRF tokens, Password reset (& reset token expiry)
 
 Sending E-Mails &check;
 - Nodemailer & SendGrid
