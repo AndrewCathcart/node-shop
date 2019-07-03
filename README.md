@@ -52,6 +52,7 @@ File Uploads & Downloads
 - Multer, createWriteStream/createReadStream, PDFKit
 
 Pagination
+- Implemented using skip and limit
 
 Async Requests
 
