@@ -55,8 +55,10 @@ Pagination
 - Implemented using skip and limit
 
 Async Requests
+- Experimenting with client-side asynchronous code for deleting products
 
 Handling Payments
+- Using Stripe
 
 Basic & Advanced REST API Features
 

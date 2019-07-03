@@ -112,7 +112,7 @@ exports.postCart = (req, res, next) => {
     })
     .then(result => {
       console.log(result);
-      return res.redirect("/products");
+      return res.redirect("back");
     });
 };
 
