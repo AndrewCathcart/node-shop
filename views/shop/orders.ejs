@@ -11,7 +11,7 @@
                 <ul class="orders">
                     <% orders.forEach(order => { %>
                         <li class="orders__item">
-                            <h1>Order #<%= order._id %> Total - <% order.products.reduce((a, b) => { return {x: a.product.price * a.quantity + b.product.price * b.quantity} }).x %></h1>
+                            <h1>Order #<%= order._id %></h1>
                             <ul class="orders__products">
                                 <% order.products.forEach(p => { %>
                                     <li class="orders__products-item"><%= p.product.title %> (<%= p.quantity %>) - £<%= p.product.price * p.quantity %> </li>
