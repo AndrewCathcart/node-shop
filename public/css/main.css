@@ -170,12 +170,12 @@ form {
 }
 
 .card {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.26);
 }
 
 .card__header,
 .card__content {
-  padding: 1rem;
+  padding: 0.25rem;
 }
 
 .card__header h1,
@@ -247,6 +247,25 @@ form {
   border-color: red;
   background: rgb(255, 176, 176);
   color: red;
+}
+
+.pagination {
+  margin-top: 2rem;
+  text-align: center;
+}
+.pagination a {
+  text-decoration: none;
+  color: #00695c;
+  padding: 0.5rem;
+  border: 1px solid #00695c;
+  margin: 0 1rem;
+}
+
+.pagination a:hover,
+.pagination a:active,
+.pagination a.active {
+  background: #00695c;
+  color: white;
 }
 
 @media (min-width: 768px) {
