@@ -3,7 +3,7 @@
 An online shop created with Node.js, Express.js & Mongoose
 
 
-## What I've learned
+## What I've learned about in this project
 
 Node.js Basics &check;
 
