@@ -3,6 +3,8 @@ const Order = require("../models/order");
 const fs = require("fs");
 const path = require("path");
 const PDFDocument = require("pdfkit");
+const secrets = require("../api-keys/api-keys");
+const stripe = require("stripe")(secrets.STRIPE_API_KEY);
 
 const ITEMS_PER_PAGE = 2;
 
@@ -155,10 +157,16 @@ exports.getCheckout = (req, res, next) => {
 };
 
 exports.postOrder = (req, res, next) => {
+  const token = req.body.stripeToken;
+  let totalSum = 0;
+
   req.user
     .populate("cart.items.productId")
     .execPopulate()
     .then(user => {
+      user.cart.items.forEach(p => {
+        totalSum += p.quantity * p.productId.price;
+      });
       const products = user.cart.items.map(i => {
         return {
           quantity: i.quantity,
@@ -175,12 +183,20 @@ exports.postOrder = (req, res, next) => {
       return order.save();
     })
     .then(result => {
+      const charge = stripe.charges.create({
+        amount: totalSum * 100,
+        currency: "gbp",
+        description: "Order",
+        source: token,
+        metadata: { order_id: result._id.toString() }
+      });
       return req.user.clearCart();
     })
     .then(() => {
       res.redirect("/orders");
     })
     .catch(err => {
+      console.log(err);
       const error = new Error(err);
       error.httpStatusCode = 500;
       return next(error);
