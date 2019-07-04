@@ -1,4 +1,4 @@
-# nodejs-shop
+# node-shop
 
 An online shop created with Node.js, Express.js & Mongoose
 
