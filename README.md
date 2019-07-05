@@ -60,10 +60,6 @@ Async Requests
 Handling Payments
 - Using Stripe
 
-Basic & Advanced REST API Features
-
-Async-await
-
 Websockets & Socket.io
 
 GraphQL
