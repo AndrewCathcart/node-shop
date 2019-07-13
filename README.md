@@ -60,10 +60,6 @@ Async Requests
 Handling Payments
 - Using Stripe
 
-Websockets & Socket.io
-
-GraphQL
-
 Deployment
 
 Node JS Functionality Beyond Web Servers
