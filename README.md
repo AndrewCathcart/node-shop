@@ -1,6 +1,6 @@
 # node-shop
 
-An online shop created with Node.js, Express.js & Mongoose
+An online shop created with Node.js, Express.js & Mongoose, following along with [NodeJS - The Complete Guide](https://www.udemy.com/course/nodejs-the-complete-guide/)
 
 
 ## What I've learned in this project
@@ -61,5 +61,6 @@ Handling Payments
 - Using Stripe
 
 Deployment
+- Environment Variables, production API keys, reduce error output information, secure response headers, asset compression, logging, SSL/TLS
 
 Node JS Functionality Beyond Web Servers
