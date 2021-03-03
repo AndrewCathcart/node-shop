@@ -39,7 +39,7 @@
     "nodemailer": "^6.2.1",
     "nodemailer-sendgrid-transport": "^0.2.0",
     "pdfkit": "^0.10.0",
-    "pug": "^2.0.4",
+    "pug": "^3.0.1",
     "sequelize": "^6.0.0",
     "shortid": "^2.2.14",
     "stripe": "^7.4.0"
